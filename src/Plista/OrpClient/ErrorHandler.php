@@ -11,7 +11,7 @@ class ErrorHandler {
 
 	public function handle(\Exception $e) {
 		// we want to log the exception
-		$logFileName = __DIR__ . '/../../logs/errors-' . date('Ymd') . '.log';
+		$logFileName = __DIR__ . '/../../../logs/errors-' . date('Ymd') . '.log';
 		$excText = date('Y-m-d H:i:s') . ' ' . $e->getMessage() . PHP_EOL;
 
 		if ($e instanceof Exception) {
