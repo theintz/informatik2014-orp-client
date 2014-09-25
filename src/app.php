@@ -32,7 +32,7 @@ $app['controller.error_notification'] = $app->share(function (Silex\Application 
 	return new ErrorNotificationHandler();
 });
 
-$app['controller.error_notification'] = $app->share(function (Silex\Application $app) {
+$app['controller.app'] = $app->share(function (Silex\Application $app) {
 	return new AppController();
 });
 
