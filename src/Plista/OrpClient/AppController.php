@@ -40,12 +40,10 @@ class AppController {
 
 		$handler = $app['controller.' . $type];
 
-		// TODO: not sure if its ever callable, maybe we can just check for empty and instanceof Handler
-		if (!is_callable($handler)) {
+		if (empty($handler) || !($handler instanceof Handler)) {
 			throw new Exception('no handler registered');
 		}
 
-		// TODO: maybe handler is already an instance not a callback, see above comment
-		$handler()->handle($body);
+		return $handler->handle($body, $app);
 	}
 }

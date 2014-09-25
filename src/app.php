@@ -1,6 +1,5 @@
 <?php
 
-use Plista\OrpClient\AppController;
 use Plista\OrpClient\ErrorHandler;
 use Plista\OrpClient\ErrorNotificationHandler;
 use Plista\OrpClient\EventNotificationHandler;
@@ -32,15 +31,10 @@ $app['controller.error_notification'] = $app->share(function (Silex\Application 
 	return new ErrorNotificationHandler();
 });
 
-$app['controller.app'] = $app->share(function (Silex\Application $app) {
-	return new AppController();
-});
-
 // set up routes, sadly only one, because we use POST parameters. actual routing is
 // done within the AppController
-// TODO: check how to attach a handler here
-// TODO: either use the "AppController::handle" syntax here or use a closure, make sure to pass the parameters through
-$app->post('/', $app['controller.app']);
+// $app->post('/', AppController::class . '::post'); only possible with PHP 5.5
+$app->post('/', 'Plista\\OrpClient\\AppController::post');
 
 $app->error([new ErrorHandler(), 'handle']);
 
