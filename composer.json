@@ -1,0 +1,15 @@
+{
+    "name": "plista/informatik2014-orp-client",
+    "authors": [
+        {
+            "name": "Tobias Heintz",
+            "email": "thz@plista.com"
+        }
+    ],
+	"require": {
+		"silex/silex": "~1.2"
+	},
+	"autoload": {
+		"psr-0": {"Plista\\OrpClient\\": "src/"}
+	}
+}
